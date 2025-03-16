@@ -1,0 +1,203 @@
+/* Generic UI Components */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;  
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+select {
+    min-width: 120px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Dialog Base Styles */
+dialog {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 300px;
+}
+
+dialog::backdrop {
+    background: rgba(0,0,0,0.5);
+}
+
+dialog h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 15px 0;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Layout Components */
+.header {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.main-controls,
+.offset-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.file-controls {
+    display: flex;
+    gap: 8px;
+    padding-left: 16px;
+    border-left: 1px solid #ddd;
+}
+
+/* Table Styles */
+.score-editor-timeline{
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    display: block;
+
+}
+score-editor table {
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-collapse: collapse;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+score-editor tbody {
+    display: block;
+    overflow-y: auto;
+    height: 100%;
+}
+th {
+    text-align: left;
+    padding: 8px;
+    background: #f0f0f0;
+    position: sticky;
+    top: 0;
+}
+
+td {
+    padding: 8px;
+    vertical-align: middle;
+}
+
+.readonly-value {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    min-width: 100px;
+}
+
+/* Track Header */
+.track-header {
+    background-color: #f5f5f5;
+}
+
+.track-header h3 {
+    margin: 0.5em;
+    padding: 0.5em;
+    font-size: 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Dialog Specific Overrides */
+.new-track-dialog,
+.new-event-dialog {
+    min-width: 400px;
+}
+
+.event-type-row {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0;
+    align-items: center;
+}
+
+.event-type-row input[type="text"] {
+    flex: 1;
+    min-width: 0;
+}
+
+.event-type-row button {
+    white-space: nowrap;
+}
+
+/* Score Info */
+.score-info {
+    display: flex;
+    gap: 15px;
+    padding-top: 5px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* State Styles */
+.highlighted {
+    background-color: #fff3cd;
+}
+
+tr:hover:not(.highlighted) {
+    background-color: #f5f5f5;
+}

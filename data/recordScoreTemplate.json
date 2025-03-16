@@ -1,0 +1,17 @@
+{
+    "title": "DEMO",
+    "frequency": 60,
+    "timeScale": 1.0,
+    "tracks": [
+        {
+            "name": "keys",
+            "eventTypes":["a", "d","w","s","space"],
+            "events": [ ]
+        },
+        {
+            "name": "game",
+            "eventTypes":["active"],
+            "events": [ ]
+        }
+    ]
+}

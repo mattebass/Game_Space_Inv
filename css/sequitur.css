@@ -1,0 +1,27 @@
+/* Main Application Layout */
+sequitur-app {
+    display: grid;
+    grid-template-rows: minmax(200px, 1fr)  minmax(200px, 1fr);
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* Prevent selection while dragging */
+.dragging {
+    user-select: none;
+}
+
+/* Score Editor Section */
+score-editor {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tracks Container Section */
+tracks-container {
+    height: 100%;
+    overflow: hidden;
+}
