@@ -234,14 +234,30 @@ class ScoreEditor extends HTMLElement {
      */
     handleoffset() {
         const score = ScoreManager.getActiveScore();
-        if (!score?.data.tracks.length) return;
+        if (!score?.data.tracks.length || !this.state.offsetFrames) return;
         
-        this.dispatchEvent(new CustomEvent('eventsoffset', {  // Changed from events-shift
-            detail: { frames: parseInt(this.state.offsetFrames) },
+        // Validate offset value
+        const offset = parseInt(this.state.offsetFrames);
+        if (isNaN(offset)) return;
+
+        // Check if offset would result in negative frame values
+        const minFrame = Math.min(
+            ...score.data.tracks.flatMap(track => 
+                track.data.events.map(event => event.data.frame)
+            )
+        );
+
+        if (minFrame + offset < 0) {
+            alert('Cannot offset events to negative frame values');
+            return;
+        }
+
+        this.dispatchEvent(new CustomEvent('eventsoffset', {
+            detail: { frames: offset },
             bubbles: true
         }));
 
-        // Reset offset value
+        // Reset offset value after applying
         this.state.offsetFrames = 0;
         this.render();
     }
@@ -251,7 +267,8 @@ class ScoreEditor extends HTMLElement {
      * @private
      */
     handleoffsetchange(e) {
-        this.state.offsetFrames = e.target.value;
+        // Convert to number and validate
+        this.state.offsetFrames = parseInt(e.target.value) || 0;
     }
 
     /**
